@@ -1,5 +1,4 @@
-vendor-prefixes = o ms moz webkit official
-@import "nib/vendor.styl"
+@import "classes.styl"
 
 *
     margin 0
@@ -18,7 +17,51 @@ li
     list-style none
 a
     text-decoration none
-#header
+
+.avatar
+    text-align center 
+    svg
+        max-width 300px
+        height 250px
+.contratame
+    align-content center
+    border-bottom 10px dashed #4AD391
+    border-top 10px dashed #4AD391
+    box-sizing border-box
+    display flex
+    margin 20px 0
+    padding 30px 10px
+    flex-wrap wrap
+    text-align center
+    .big
+        font-size 30px
+.frases
+    margin-bottom 150px
+    &.extended
+        // margin 0 20px
+        padding 20px
+    .frase 
+        .text
+            font-size 30px
+            &:first-letter
+                font-size 40px
+                font-weight bold
+                text-decoration underline
+        .details
+            float right
+        .author
+        .date
+            font-size 12px
+        .author
+            // font-style italic
+            font-size 15px
+            font-weight bold
+            text-decoration underline
+        .twitter
+            font-size 10px
+
+
+.header
     background #4AD391
     bottom 0
     padding 20px
@@ -56,17 +99,6 @@ a
                 &.active
                     color #404045
                     text-decoration line-through !important
-
-.social
-    text-align left
-    position absolute
-    bottom 0
-@keyframes header
-    from
-        left -300px
-    to
-        left 0
-
 .name
     font-weight bold
     text-transform uppercase
@@ -82,6 +114,10 @@ a
         text-transform none
         text-shadow none
         text-decoration underline
+.image
+    display inline-block
+    img 
+        max-width 100%
 .video
     position relative
     border 20px solid #4AD391
@@ -98,16 +134,11 @@ a
         left 0
         height 100%
         width 100%
-.avatar
-    text-align center 
-    svg
-        max-width 300px
-        height 250px
-.image
-    display inline-block
-    img 
-        max-width 100%
-#wrapper
+.social
+    text-align left
+    position absolute
+    bottom 0
+.wrapper
     margin-left 420px
     padding 20px
     animation wrapper .7s 
@@ -144,24 +175,20 @@ a
             border-radius 5px 5px 0 0
             border-bottom 2px solid #404045
 
-#contratame
-    align-content center
-    border-bottom 10px dashed #4AD391
-    border-top 10px dashed #4AD391
-    box-sizing border-box
-    display flex
-    margin 20px 0
-    padding 30px 10px
-    flex-wrap wrap
-    text-align center
-    .big
-        font-size 30px
+
+
+
+
 @keyframes wrapper
     from
         right 100%
     to
         right 0
-
+@keyframes header
+    from
+        left -300px
+    to
+        left 0
 @media screen and (max-width:1000px)
     #header
         width 300px

@@ -1,33 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Leonidas Esteban, Front-End Web Developer</title>
-    <meta name="viewport" content="width=device-width, ,minimum-scale=1, maximum-scale=1"/>
-    <link rel="stylesheet" href="static/css/estilos.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300' rel='stylesheet' type='text/css'>
-    
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
+{% extends "base.html" %}
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-28518727-1']);
-      _gaq.push(['_setDomainName', 'leonidasesteban.com']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-</head>
-
-<body>  
-    <header id="header">
+{% block body %}
+    <header id="header" class="header">
         <div class="avatar">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720.072px" height="897.09px" viewBox="0 0 720.072 897.09" enable-background="new 0 0 720.072 897.09" xml:space="preserve">
                 <g id="Capa_3">
@@ -87,6 +61,7 @@
                 </g>
             </svg>
         </div>
+        
         <h1 class="name">Leonidas Esteban González <span> Front-End Web Developer</span></h1>
         <h2 class="twitter">
             <a href="//twitter.com/LeonidasEsteban">@LeonidasEsteban</a>
@@ -115,7 +90,22 @@
         </div>
     </header>
     
-    <section id="wrapper">
+    <section id="wrapper" class="wrapper">
+        <div id="frases" class="frases">
+            {% for frase in frases %}
+            <div class="frase clearfix">
+                <h2 class="title">La frase del día</h2>
+                <p class="text">{{frase.frase}}</p>
+                <div class="twitter">
+                    <a href="https://twitter.com/share" data-text="{{frase.frase}}" class="twitter-share-button" data-via="LeonidasEsteban" data-lang="es">Twittear</a>
+                </div>
+                <p class="details">
+                    <span class="author">{{frase.autor}}</span>
+                    <span class="date">{{frase.fecha}}</span>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
         <div id="yo">
             <h2 class="title">Habilidades</h2>
             <ul class="lista">
@@ -181,7 +171,7 @@
 
             </ul>
         </div>
-        <div id="contratame">
+        <div id="contratame" class="contratame">
             <div class="servicios">
                 <h4 class="psd">
                     <span class="big">PSD</span>  a <span class="big">HTML5 + CSS3 + Responsive Design</span>
@@ -189,7 +179,7 @@
             </div>
             <h2 class="speech">Escríbeme a<a href="mailto:bamboo@bamboolabs.com" class="link">bamboo@bamboolabs.com</a></h2>
         </div>
-        <div id="portafolio">
+        <div id="portafolio" class="portafolio">
             <h2 class="title">Portafolio</h2>
             <div class="muestra">
                 <figure class="image">
@@ -210,7 +200,7 @@
                 </figure>
             </div>
         </div>
-        <div id="aprende">
+        <div id="aprende" class="aprende">
             <h2 class="title">Artículos</h2>
            
             <ul class="lista">
@@ -305,7 +295,9 @@
             
         </div>
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block footer %}
     <script src="static/js/jquery.scrollTo-1.4.2-min.js"></script>
     <script src="static/js/jquery.localscroll-1.2.7-min.js"></script>
     <script>
@@ -318,10 +310,5 @@
             });
         })
     </script>
-    <script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-    <script src="https://apis.google.com/js/plusone.js"></script>
-    <script src="https://platform.twitter.com/widgets.js"></script>
-</body>
+{% endblock %}
 
-
-</html>

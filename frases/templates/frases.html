@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+<section class="frases extended">
+    {% for frase in frases %}
+    <div class="frase clearfix">
+        <p class="text">{{frase.frase}}</p>
+        <div class="twitter">
+            <a href="https://twitter.com/share" data-text="{{frase.frase}}" class="twitter-share-button" data-via="LeonidasEsteban" data-lang="es">Twittear</a>
+        </div>
+        <p class="details">
+            <span class="author">{{frase.autor}}</span>
+            <span class="date">{{frase.fecha}}</span>
+        </p>
+    </div>
+    {% endfor %}
+</section>
+{% endblock body %}
